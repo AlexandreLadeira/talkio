@@ -1,2 +1,8 @@
-rootProject.name = 'talkio'
+rootProject.name = "talkio"
+
+String[] modules = [
+    "api-gateway"
+]
+
+include modules
 
