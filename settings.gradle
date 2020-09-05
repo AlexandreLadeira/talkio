@@ -1,7 +1,8 @@
 rootProject.name = "talkio"
 
 String[] modules = [
-    "api-gateway"
+    "api-gateway",
+    "commons"
 ]
 
 include modules

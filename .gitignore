@@ -28,3 +28,6 @@ build
 logs
 out
 .DS_Store
+
+# SDKMAN configuration
+.sdkmanrc

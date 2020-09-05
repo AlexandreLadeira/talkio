@@ -1,8 +1,19 @@
 dependencies {
+    implementation "org.koin:koin-core:$koinVersion"
+    implementation "org.koin:koin-core-ext:$koinVersion"
+    implementation "org.koin:koin-ktor:$koinVersion"
+
     implementation "io.ktor:ktor-server-core:$ktorVersion"
     implementation "io.ktor:ktor-server-netty:$ktorVersion"
+    implementation "io.ktor:ktor-jackson:$ktorVersion"
+    implementation "io.ktor:ktor-auth:$ktorVersion"
 
     implementation "ch.qos.logback:logback-classic:$logbackVersion"
 
     implementation "com.typesafe:config:$typesafeConfigVersion"
+
+    implementation "com.fasterxml.jackson.module:jackson-module-parameter-names:$jacksonVersion"
+    implementation "com.fasterxml.jackson.module:jackson-module-afterburner:$jacksonVersion"
+    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion"
+    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:$jacksonVersion"
 }

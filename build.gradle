@@ -15,7 +15,14 @@ allprojects {
         jcenter()
     }
 
-    dependencies {}
+    test {
+        useJUnitPlatform()
+    }
+
+    dependencies {
+        implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:$kotlinXVersion"
+    }
+
 
     compileKotlin {
         kotlinOptions {
