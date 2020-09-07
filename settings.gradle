@@ -5,8 +5,11 @@ String[] modules = [
     "commons",
     "commons:grpc",
     "commons:kafka",
+    "commons:redis",
     "user-service",
-    "user-service:grpc"
+    "user-service:grpc",
+    "session-service",
+    "message-persistence-service"
 ]
 
 include modules
