@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.alelad.talkio.user.service.grpc";
+
+package com.alelad.talkio.user.service.grpc;
+
+service User {
+  rpc Create (CreateUserRequest) returns (UserResponse) {}
+}
+
+message CreateUserRequest {
+  string email = 1;
+}
+
+message UserResponse {
+  string id = 1;
+  string nickname = 2;
+  string email = 3;
+  string name = 4;
+  string lastname  = 5;
+}

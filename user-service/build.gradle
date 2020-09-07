@@ -1,0 +1,11 @@
+allprojects {
+    dependencies {
+        implementation project(":commons")
+    }
+}
+
+subprojects {
+    dependencies {
+        implementation project(":user-service")
+    }
+}

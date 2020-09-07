@@ -1,5 +1,8 @@
 plugins {
     id "java"
+    id "idea"
+    id "maven-publish"
+    id "application"
     id "org.jetbrains.kotlin.jvm" version "$kotlinVersion"
 }
 
@@ -7,19 +10,26 @@ group "com.alelad"
 version "1.0-SNAPSHOT"
 
 allprojects {
-    apply plugin: "java"
-    apply plugin: "org.jetbrains.kotlin.jvm"
-
     repositories {
         mavenCentral()
+        mavenLocal()
         jcenter()
     }
+}
+
+subprojects {
+    apply plugin: "java"
+    apply plugin: "idea"
+    apply plugin: "org.jetbrains.kotlin.jvm"
+    apply plugin: "maven-publish"
+    apply plugin: "application"
 
     test {
         useJUnitPlatform()
     }
 
     dependencies {
+        implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
         implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:$kotlinXVersion"
     }
 
