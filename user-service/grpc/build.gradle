@@ -4,6 +4,8 @@ plugins {
 
 dependencies {
     implementation project(":commons:grpc")
+
+    implementation "ch.qos.logback:logback-classic:$logbackVersion"
 }
 
 protobuf {

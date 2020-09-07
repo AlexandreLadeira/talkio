@@ -2,10 +2,9 @@ package com.alelad.talkio.user.service.grpc
 
 import com.alelad.talkio.user.service.UserService
 import com.alelad.talkio.user.service.grpc.extensions.toUserResponse
-import com.alelad.talkio.user.service.model.User
 import io.grpc.Server
 import io.grpc.ServerBuilder
-import java.util.logging.Logger
+import org.slf4j.LoggerFactory
 
 class UserServer constructor(
     private val port: Int,
@@ -41,6 +40,7 @@ class UserServer constructor(
     ) : UserGrpcKt.UserCoroutineImplBase() {
 
         override suspend fun create(request: CreateUserRequest): UserResponse {
+            logger.info("Going to create user with email: ${request.email}")
 
             return userService.create(request.email)
                 .toUserResponse()
@@ -48,6 +48,6 @@ class UserServer constructor(
     }
 
     companion object {
-        private val logger = Logger.getLogger(this::class.qualifiedName)
+        private val logger = LoggerFactory.getLogger(this::class.qualifiedName)
     }
 }

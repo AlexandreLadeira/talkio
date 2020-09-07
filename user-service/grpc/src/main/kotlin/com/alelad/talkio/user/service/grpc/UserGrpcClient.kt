@@ -11,7 +11,7 @@ import kotlinx.coroutines.asExecutor
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 
-class UserClient constructor(
+class UserServiceGrpcClient(
     private val channel: ManagedChannel
 ) : Closeable {
     private val stub: UserGrpcKt.UserCoroutineStub = UserGrpcKt.UserCoroutineStub(channel)
@@ -34,7 +34,7 @@ class UserClient constructor(
 suspend fun main() {
     val port = 9201
 
-    val client = UserClient(
+    val client = UserServiceGrpcClient(
         ManagedChannelBuilder.forAddress("localhost", port)
             .usePlaintext()
             .executor(Dispatchers.Default.asExecutor())
