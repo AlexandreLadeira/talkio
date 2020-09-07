@@ -4,6 +4,7 @@ String[] modules = [
     "api-gateway",
     "commons",
     "commons:grpc",
+    "commons:kafka",
     "user-service",
     "user-service:grpc"
 ]
