@@ -6,8 +6,10 @@ String[] modules = [
     "commons:grpc",
     "commons:kafka",
     "commons:redis",
+    "commons:serialization",
     "user-service",
     "user-service:grpc",
+    "user-service:grpc:client",
     "session-service",
     "message-persistence-service"
 ]

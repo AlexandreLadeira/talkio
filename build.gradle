@@ -29,8 +29,11 @@ subprojects {
     }
 
     dependencies {
+        implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
         implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-        implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:$kotlinXVersion"
+
+        implementation "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:$kotlinXVersion"
+        implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinXVersion" 
 
         implementation "org.slf4j:slf4j-api:$slf4jVersion"
 

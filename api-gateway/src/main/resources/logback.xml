@@ -18,5 +18,7 @@
     </root>
 
     <logger name="io.netty" level="WARN"/>
+    <logger name="com.google" level="WARN"/>
+    <logger name="io.grpc" level="WARN"/>
 
 </configuration>

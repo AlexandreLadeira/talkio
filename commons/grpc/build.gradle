@@ -1,4 +1,6 @@
 dependencies {
+    implementation project(":commons")
+
     api "com.google.protobuf:protobuf-java:$protobufVersion"
     api "com.google.protobuf:protobuf-java-util:$protobufVersion"
 

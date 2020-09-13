@@ -1,9 +1,11 @@
 package com.alelad.talkio.user.service.grpc
 
+import com.alelad.talkio.commons.grpc.runMappingGrpcExceptions
 import com.alelad.talkio.user.service.UserService
 import com.alelad.talkio.user.service.grpc.extensions.toUserResponse
 import io.grpc.Server
 import io.grpc.ServerBuilder
+import io.grpc.StatusException
 import org.slf4j.LoggerFactory
 
 class UserServer constructor(
@@ -39,10 +41,10 @@ class UserServer constructor(
         private val userService: UserService
     ) : UserGrpcKt.UserCoroutineImplBase() {
 
-        override suspend fun create(request: CreateUserRequest): UserResponse {
+        override suspend fun create(request: CreateUserRequest): UserResponse = runMappingGrpcExceptions {
             logger.info("Going to create user with email: ${request.email}")
 
-            return userService.create(request.email)
+            userService.create(request.email)
                 .toUserResponse()
         }
     }

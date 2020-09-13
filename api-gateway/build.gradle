@@ -7,15 +7,14 @@ dependencies {
     implementation "io.ktor:ktor-server-netty:$ktorVersion"
     implementation "io.ktor:ktor-jackson:$ktorVersion"
     implementation "io.ktor:ktor-auth:$ktorVersion"
+    implementation "io.ktor:ktor-client-apache:$ktorVersion"
 
     implementation "ch.qos.logback:logback-classic:$logbackVersion"
 
     implementation "com.typesafe:config:$typesafeConfigVersion"
 
-    implementation "com.fasterxml.jackson.module:jackson-module-parameter-names:$jacksonVersion"
-    implementation "com.fasterxml.jackson.module:jackson-module-afterburner:$jacksonVersion"
-    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion"
-    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:$jacksonVersion"
-
     implementation project(":commons")
+    implementation project(":commons:serialization")
+
+    implementation project(":user-service:grpc")
 }
