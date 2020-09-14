@@ -8,6 +8,7 @@ import com.alelad.talkio.api.gateway.configuration.Configuration.googleOauthProv
 import com.alelad.talkio.api.gateway.configuration.Configuration.googleUserInfoUrl
 import com.alelad.talkio.api.gateway.configuration.Configuration.loginResponseRedirectUrl
 import com.alelad.talkio.api.gateway.model.TalkioPrincipal
+import com.alelad.talkio.api.gateway.route.chat
 import com.alelad.talkio.api.gateway.route.userAuth
 import com.alelad.talkio.commons.serialization.JsonExtensions
 import com.alelad.talkio.user.service.grpc.client.UserGrpcClient
@@ -38,6 +39,9 @@ import io.ktor.routing.routing
 import io.ktor.sessions.SessionTransportTransformerEncrypt
 import io.ktor.sessions.Sessions
 import io.ktor.sessions.cookie
+import io.ktor.sessions.get
+import io.ktor.sessions.sessions
+import io.ktor.websocket.WebSockets
 import java.util.*
 import org.apache.commons.codec.binary.Hex
 import org.koin.ktor.ext.Koin
@@ -62,6 +66,7 @@ fun Application.main() {
         }
     }
     install(XForwardedHeaderSupport)
+    install(WebSockets)
     install(StatusPages) {
         // TODO
     }
@@ -93,7 +98,8 @@ fun Application.main() {
 
         session<TalkioPrincipal> {
             validate {
-                TODO()
+//                sessions.get<TalkioPrincipal>() // TODO validate token?
+                TalkioPrincipal()
             }
 
             challenge {
@@ -113,6 +119,7 @@ fun Application.main() {
                 loginResponseRedirectUrl = loginResponseRedirectUrl,
                 userClient = UserGrpcClient.createClient()
             )
+            chat()
 
             authenticate {
 
